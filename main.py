@@ -44,7 +44,7 @@ def get_meetings(token, day):
 
 def get_participants_csv(token, meeting_id):
     encoded_id = urllib.parse.quote(meeting_id, safe="")
-    url = f"https://api.zoom.us/v2/past_meetings/{encoded_id}/participants?page_size=400&include_bots=true"
+    url = f"https://api.zoom.us/v2/past_meetings/{encoded_id}/participants?page_size=500&include_bots=true"
     headers = {"Authorization": f"Bearer {token}", "Zoom-API-Version": "2.0.0"}
 
     all_participants = []
@@ -182,7 +182,7 @@ def upload_to_drive(creds, file_bytes, filename):
 
 
 def main():
-    today = "2025-10-09"
+    today = "2025-10-08"
     creds = google_creds()
     token = zoom_access_token()
     meetings = get_meetings(token, today)

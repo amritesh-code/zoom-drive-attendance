@@ -26,8 +26,13 @@ jobs:
 
       - name: Restore credential files
         run: |
-          echo "${{ secrets.CLIENT_SECRET_JSON }}" > client_secret.json
-          echo "${{ secrets.TOKEN_JSON }}" > token.json
+          echo '${{ secrets.CLIENT_SECRET_JSON }}' > client_secret.json
+          echo '${{ secrets.TOKEN_JSON }}' > token.json
+          
+      - name: Verify JSON integrity
+        run: |
+          python -m json.tool client_secret.json > /dev/null
+          python -m json.tool token.json > /dev/null
 
       - name: Create .env file
         run: |

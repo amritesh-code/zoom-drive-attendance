@@ -106,8 +106,6 @@ Secrets required:
 
 
 ## Notes
-
-* Each day’s upload is unique and does not overwrite existing files.
 * Meeting selected = the one with highest participant count on that date.
 * CSV formatting matches Zoom’s “Show unique users” export.
 * For accurate timing, Zoom’s UTC timestamps are converted internally, but filenames use Zoom’s own date offset (–1 day).

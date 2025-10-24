@@ -87,13 +87,6 @@ Workflow file: `.github/workflows/upload.yml`
 
 Runs daily at **11:00 PM IST (17:30 UTC)**:
 
-```yaml
-on:
-  schedule:
-    - cron: '30 17 * * *'
-  workflow_dispatch:
-```
-
 Secrets required:
 
 * `ZOOM_ACCOUNT_ID`

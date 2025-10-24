@@ -5,7 +5,7 @@ import csv
 import math
 import requests
 import urllib.parse
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from dotenv import load_dotenv
 from authorize import get_google_creds
 from googleapiclient.discovery import build
@@ -182,7 +182,8 @@ def upload_to_drive(creds, file_bytes, filename):
 
 
 def main():
-    today = "2025-10-08"
+    today = date.today().isoformat()
+    print(f"Processing meetings for {today}")
     creds = google_creds()
     token = zoom_access_token()
     meetings = get_meetings(token, today)
@@ -195,7 +196,6 @@ def main():
     file_date = (date.fromisoformat(today) - timedelta(days=1)).strftime("%Y_%m_%d")
     filename = f"participants_{meeting['id']}_{file_date}.csv"
     upload_to_drive(creds, csv_data, filename)
-
 
 if __name__ == "__main__":
     main()

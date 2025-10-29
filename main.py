@@ -182,8 +182,8 @@ def upload_to_drive(creds, file_bytes, filename):
 
 
 def main():
-    today = "2025-10-28"
-    #today = date.today().isoformat()
+    #today = "2025-10-28"
+    today = date.today().isoformat()
     print(f"Processing meetings for {today}")
     creds = google_creds()
     token = zoom_access_token()
